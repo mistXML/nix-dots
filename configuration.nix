@@ -1,4 +1,4 @@
- config, pkgs, lib, ... }:
+{config, pkgs, lib, ... }:
 {
 
   nixpkgs.config.allowUnfree = true;
@@ -96,7 +96,7 @@
 		imv
 		wezterm
 		mpv
-  };
+  ];
 
   programs.steam = {
 	  enable = true;
