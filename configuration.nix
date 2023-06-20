@@ -17,32 +17,26 @@
 		timeout = 0;
 	};
 
-	boot.initrd.systemd.enable = true;
-  	boot.kernelParams = ["amd_iommu=on" "iommu=pt" "rw"]
+  boot.initrd.systemd.enable = true;
+  boot.kernelParams = ["amd_iommu=on" "iommu=pt" "rw"]
 
-  networking = {
-        networkmanager.enable = true;
-        hostName="maelstorm";
-  };
+
+  networking.networkmanager.enable = true;
+  networking.hostName="maelstorm";
 
   virtualisation.libvirtd.enable = true; 	
 
-  services = {
-  	dbus.enable = true;
-	xserver.displayManager = {
-  		sddm.enable = true;
-  		defaultSession = "none+Hyprland";
-		autoLogin.enable = true;
-		autoLogin.user = "vael";
-	};
-	pipewire = {
-		enable = true;
-		alsa.enable = true;
-    		alsa.support32Bit = true;
-    		pulse.enable = true;
-    		jack.enable = true;
-	};
-  };
+  
+  services.dbus.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.defaultSession = "none+Hyprland";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "vael";
+  sevices.pipewire.enable = true;
+  sevices.pipewire.alsa.enable = true;
+  sevices.pipewire.alsa.support32Bit = true;
+  sevices.pipewire.pulse.enable = true;
+  sevices.pipewire.jack.enable = true;
 
   security.pam.services.gtklock = {};
 
@@ -60,6 +54,7 @@
 		initialPassword = "changeme";
   		extraGroups = [ "wheel" "libvirt" "kvm" "video" "autologin" "vael"];
   	};
+
 	environment.systemPackages = with pkgs; [
         	git
 		starship
@@ -101,7 +96,7 @@
 	  enable = true;
 	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
 	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-	  };
+  	  };
 
   xdg.portal = {
     enable = true;
