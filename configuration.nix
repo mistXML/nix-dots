@@ -11,15 +11,14 @@
         ];
 
 	
-  boot = {
-  	loader = {
+  	boot.loader = {
         	systemd-boot.enable = true;
         	efi.canTouchEfiVariables = true;
 		timeout = 0;
 	};
-	initrd.systemd.enable = true;
-  	kernelParams = ["amd_iommu=on" "iommu=pt" "rw"]
-  }; 
+
+	boot.initrd.systemd.enable = true;
+  	boot.kernelParams = ["amd_iommu=on" "iommu=pt" "rw"]
 
   networking = {
         networkmanager.enable = true;
