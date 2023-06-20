@@ -21,8 +21,8 @@
   boot.kernelParams = ["amd_iommu=on" "iommu=pt" "rw"]
 
 
-  networking.networkmanager.enable = true;
   networking.hostName="maelstorm";
+  networking.networkmanager.enable = true;
 
   virtualisation.libvirtd.enable = true; 	
 
