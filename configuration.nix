@@ -18,7 +18,7 @@
 	};
 
   boot.initrd.systemd.enable = true;
-  boot.kernelParams = ["amd_iommu=on" "iommu=pt" "rw"]
+  boot.kernelParams = ["amd_iommu=on" "iommu=pt" "rw"];
 
 
   networking.hostName = "maelstorm";
