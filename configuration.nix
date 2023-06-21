@@ -30,10 +30,10 @@
   	dbus.enable = true;
   	pipewire = { 
 			enable = true;
-  		pipewire.alsa.enable = true;
-  		pipewire.alsa.support32Bit = true;
-  		pipewire.pulse.enable = true;
-  		pipewire.jack.enable = true;
+  		alsa.enable = true;
+  		alsa.support32Bit = true;
+  		pulse.enable = true;
+  		jack.enable = true;
     };
 		xserver.displayManager = { 
 			sddm.enable = true;
