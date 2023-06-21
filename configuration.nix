@@ -5,11 +5,11 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
 
-  imports =
-        [ 
-        ./hardware-configuration.nix
-        ];
-
+  #imports =
+   #     [ 
+    #    ./hardware-configuration.nix
+     #   ];
+	
    boot.loader = {
   	systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -38,8 +38,8 @@
 		xserver.displayManager = { 
 			sddm.enable = true;
     	defaultSession = "none+Hyprland";
-    	server.displayManager.autoLogin.enable = true;
-    	server.displayManager.autoLogin.user = "vael";
+    	displayManager.autoLogin.enable = true;
+    	displayManager.autoLogin.user = "vael";
 			};
 	};
 
