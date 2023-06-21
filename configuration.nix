@@ -53,6 +53,7 @@
   	defaultUserShell = pkgs.zsh;
 	groups = {
 		vael = {};
+		};
 	};
 
   users.vael = {
