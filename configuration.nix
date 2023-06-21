@@ -1,7 +1,6 @@
 {config, pkgs, lib, ... }:
 
 {
-
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
@@ -11,37 +10,36 @@
         ./hardware-configuration.nix
         ];
 
-	
    boot.loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
+  	systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
 		timeout = 0;
 	};
 
-  	boot.initrd.systemd.enable = true;
+  boot.initrd.systemd.enable = true;
  	boot.kernelParams = ["amd_iommu=on" "iommu=pt" "rw"];
 
 
-  	networking.hostName = "maelstorm";
-  	networking.networkmanager.enable = true;
+  networking.hostName = "maelstorm";
+  networking.networkmanager.enable = true;
 
-  	virtualisation.libvirtd.enable = true; 	
+  virtualisation.libvirtd.enable = true; 	
 
   
-  	services = { 
-  		dbus.enable = true;
-  		pipewire = { 
+  services = { 
+  	dbus.enable = true;
+  	pipewire = { 
 			enable = true;
-  			pipewire.alsa.enable = true;
-  			pipewire.alsa.support32Bit = true;
-  			pipewire.pulse.enable = true;
-  			pipewire.jack.enable = true;
-    		};
+  		pipewire.alsa.enable = true;
+  		pipewire.alsa.support32Bit = true;
+  		pipewire.pulse.enable = true;
+  		pipewire.jack.enable = true;
+    };
 		xserver.displayManager = { 
 			sddm.enable = true;
-    		defaultSession = "none+Hyprland";
-    		server.displayManager.autoLogin.enable = true;
-    		server.displayManager.autoLogin.user = "vael";
+    	defaultSession = "none+Hyprland";
+    	server.displayManager.autoLogin.enable = true;
+    	server.displayManager.autoLogin.user = "vael";
 			};
 	};
 
@@ -56,14 +54,15 @@
 	groups = {
 		vael = {};
 	};
-        users.vael = {
-  		isNormalUser = true;
+
+  users.vael = {
+  	isNormalUser = true;
 		initialPassword = "changeme";
-  		extraGroups = [ "wheel" "libvirt" "kvm" "video" "autologin" "vael"];
-  	};
+  	extraGroups = [ "wheel" "libvirt" "kvm" "video" "autologin" "vael"];
+  };
 
 	environment.systemPackages = with pkgs; [
-        git
+    git
 		starship
 		dunst
 		fontconfig
@@ -77,15 +76,15 @@
 		hyprland-share-picker
 		xdg-desktop-portal-hyprland
 		hyprpaper
-        btop
-        neovim
-        pulseaudio #Needed for volume keys even with pipewire
-        python3
-        unzip
-        virt-manager
-        wget
-        wl-clipboard
-        zip
+    btop
+    neovim
+    pulseaudio #Needed for volume keys even with pipewire
+    python3
+    unzip
+		virt-manager
+    wget
+    wl-clipboard
+    zip
 		hyprland
 		freetube
 		bitwarden
