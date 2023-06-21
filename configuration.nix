@@ -38,8 +38,8 @@
 		xserver.displayManager = { 
 			sddm.enable = true;
     	defaultSession = "none+Hyprland";
-    	displayManager.autoLogin.enable = true;
-    	displayManager.autoLogin.user = "vael";
+    	autoLogin.enable = true;
+    	dautoLogin.user = "vael";
 			};
 	};
 
