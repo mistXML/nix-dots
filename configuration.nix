@@ -49,21 +49,14 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   console.keyMap = "us";
 
-  users = {
-  	defaultUserShell = pkgs.zsh;
-	groups = {
-		vael = {};
-		};
-	};
-
-  users.vael = {
+  users.users.vael = {
   	isNormalUser = true;
 		initialPassword = "changeme";
   	extraGroups = [ "wheel" "libvirt" "kvm" "video" "autologin" "vael"];
   };
 
-  environment.systemPackages = with pkgs; [
-    		git
+	environment.systemPackages = with pkgs; [
+    git
 		starship
 		dunst
 		fontconfig
@@ -77,15 +70,15 @@
 		hyprland-share-picker
 		xdg-desktop-portal-hyprland
 		hyprpaper
-		btop
-		neovim
-		pulseaudio #Needed for volume keys even with pipewire
-		python3
-		unzip
+    btop
+    neovim
+    pulseaudio #Needed for volume keys even with pipewire
+    python3
+    unzip
 		virt-manager
-		wget
-		wl-clipboard
-		zip
+    wget
+    wl-clipboard
+    zip
 		hyprland
 		freetube
 		bitwarden
